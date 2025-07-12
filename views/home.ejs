@@ -1,0 +1,61 @@
+<%- include("partials/head") %>
+<%- include("partials/navbar") %>
+
+<style>
+  body {
+    background: linear-gradient(to right, #f0f4ff, #e6ecff);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero-section {
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #343a40;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+
+  .cta-buttons .btn {
+    margin: 10px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-primary {
+    background-color: #6c63ff;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #574bff;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #dee2e6;
+  }
+</style>
+
+<div class="hero-section">
+  <h1 class="hero-title">Welcome to <span style="color: #6c63ff;">Skill Swap</span></h1>
+  <p class="hero-subtitle">
+    Connect and trade your skills with others around the world.
+  </p>
+  <div class="cta-buttons">
+    <a href="/users" class="btn btn-primary">🚀 Explore Users</a>
+    <a href="/users/profile" class="btn btn-outline-secondary">👤 My Profile</a>
+    <a href="/swaps" class="btn btn-outline-secondary">🔁 Swap Requests</a>
+    <a href="/register" class="btn btn-success">📝 Register</a>
+  </div>
+</div>

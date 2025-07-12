@@ -1,0 +1,16 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Send a Skill Swap Request to <%= receiver.email %></h2>
+  <form action="/swaps" method="POST">
+    <input type="hidden" name="receiverId" value="<%= receiver._id %>">
+    
+    <div class="mb-3">
+      <label for="message" class="form-label">Message or Offer</label>
+      <textarea class="form-control" name="message" rows="4" required></textarea>
+    </div>
+
+    <button class="btn btn-primary">Send Request</button>
+  </form>
+</div>

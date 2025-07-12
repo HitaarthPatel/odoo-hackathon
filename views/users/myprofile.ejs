@@ -1,0 +1,30 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+        <div class="card-body text-center p-5 bg-light">
+
+          <% if (user.profileImage?.url) { %>
+            <img src="<%= user.profileImage.url %>" class="rounded-circle shadow mb-4"
+              style="width: 150px; height: 150px; object-fit: cover;">
+          <% } else { %>
+            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-4 mx-auto"
+              style="width: 150px; height: 150px;">
+              <span class="text-white fs-3"><%= user.email?.slice(0, 2).toUpperCase() %></span>
+            </div>
+          <% } %>
+
+          <h3 class="fw-bold text-primary mb-2"><%= user.email %></h3>
+          <p><strong>Bio:</strong> <%= user.bio || "Not added" %></p>
+          <p><strong>Location:</strong> <%= user.location || "Not specified" %></p>
+          <p><strong>Skills:</strong> <%= user.skills && user.skills.length > 0 ? user.skills.join(", ") : "Not listed" %></p>
+
+          <a href="/profile/edit" class="btn btn-primary mt-4">✏️ Edit Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

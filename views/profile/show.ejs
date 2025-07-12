@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="card p-4 mx-auto" style="max-width: 600px;">
+    <div class="d-flex align-items-center mb-4">
+      <img src="https://ui-avatars.com/api/?name=<%= user.name || user.email %>&background=0D8ABC&color=fff" class="rounded-circle me-3" width="60" height="60" />
+      <div>
+        <img src="<%= user.profileImage?.url %>" alt="Profile Image" class="img-thumbnail rounded-circle" width="150">
+
+        <h4 class="mb-0"><%= user.name || user.email %></h4>
+        <small class="text-muted"><%= user.location || "Unknown" %></small>
+      </div>
+    </div>
+    <p><strong>Bio:</strong> <%= user.bio || "No bio yet." %></p>
+    <p><strong>Skills:</strong> <%= user.skills?.join(", ") || "No skills listed" %></p>
+    <a href="/profile/edit" class="btn btn-warning">Edit Profile</a>
+  </div>
+</div>

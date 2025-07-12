@@ -1,0 +1,54 @@
+
+<%- include("partials/head") %>
+<%- include("partials/navbar") %>
+
+
+<div class="container py-5">
+  <h2 class="text-center text-primary mb-4">Create Your Skill Swap Profile</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+     <form action="/register" method="POST" enctype="multipart/form-data">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input name="email" id="email" type="email" class="form-control" required>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input name="password" id="password" type="password" class="form-control" required>
+        </div>
+
+        <!-- Location -->
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input name="location" id="location" type="text" class="form-control">
+        </div>
+
+        <!-- Skills -->
+        <div class="mb-3">
+          <label for="skills" class="form-label">Skills (comma-separated)</label>
+          <input name="skills" id="skills" type="text" class="form-control" placeholder="e.g. HTML, CSS, React">
+        </div>
+
+        <!-- Bio -->
+        <div class="mb-3">
+          <label for="bio" class="form-label">Bio</label>
+          <textarea name="bio" id="bio" class="form-control" rows="3" placeholder="Tell us about yourself..."></textarea>
+        </div>
+
+
+        <!-- Profile Image -->
+  <div class="mb-3">
+    <label for="profileImage" class="form-label">Profile Picture</label>
+    <input class="form-control" type="file" name="profileImage" id="profileImage" accept="image/*">
+  </div>
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

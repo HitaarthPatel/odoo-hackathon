@@ -1,0 +1,28 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+}
+.card {
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+}
+.card-text {
+  color: #555;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafc;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}

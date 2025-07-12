@@ -1,0 +1,66 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+        <div class="card-body text-center p-5 bg-light">
+
+          <!-- Profile Image -->
+          <% if (user.profileImage && user.profileImage.url) { %>
+            <img src="<%= user.profileImage.url %>" alt="Profile Picture"
+              class="rounded-circle shadow mb-4"
+              style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #6366f1;">
+          <% } else { %>
+            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-4 mx-auto"
+              style="width: 150px; height: 150px;">
+              <span class="text-white fs-3"><%= user.email.slice(0, 2).toUpperCase() %></span>
+            </div>
+          <% } %>
+
+          <!-- Email -->
+          <h3 class="fw-bold text-primary mb-2"><%= user.email %></h3>
+
+          <!-- Bio -->
+          <% if (user.bio) { %>
+            <p class="text-muted fst-italic mb-3">"<%= user.bio %>"</p>
+          <% } %>
+
+          <!-- Location -->
+          <% if (user.location) { %>
+            <p class="mb-2">
+              <i class="bi bi-geo-alt-fill text-danger"></i> 
+              <strong>Location:</strong> <%= user.location %>
+            </p>
+          <% } %>
+
+          <!-- Skills -->
+          <% if (user.skills && user.skills.length > 0) { %>
+            <p class="mb-1"><strong>Skills:</strong></p>
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+              <% user.skills.forEach(skill => { %>
+                <span class="badge bg-primary-subtle text-primary border border-primary rounded-pill px-3 py-2">
+                  <%= skill %>
+                </span>
+              <% }) %>
+            </div>
+          <% } %>
+
+          <!-- Action Buttons -->
+          <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+            <a href="/swaps/new/<%= user._id %>" class="btn btn-outline-primary">
+              🔁 Request Skill Swap
+            </a>
+            <a href="/users" class="btn btn-outline-secondary">
+              ← Back to All Users
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

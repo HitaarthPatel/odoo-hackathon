@@ -1,0 +1,102 @@
+<%- include("../partials/head") %>
+<%- include("../partials/navbar") %>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #f0f4ff, #e0eaff, #fff8f8);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section-title {
+    text-align: center;
+    margin: 40px 0 30px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+
+  .user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .user-card {
+    background: #ffffffdd;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .initials {
+    background: #4f46e5;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+
+  .btn-profile {
+    margin-top: 15px;
+    border: 1px solid #4f46e5;
+    color: #4f46e5;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-profile:hover {
+    background: #4f46e5;
+    color: #fff;
+  }
+</style>
+
+<h2 class="section-title">🌟 Meet the Skill Swappers</h2>
+
+<div class="user-grid">
+  <% users.forEach(user => { %>
+    <div class="user-card">
+      <% if (user.profileImage && user.profileImage.url) { %>
+        <img src="<%= user.profileImage.url %>" class="avatar" />
+      <% } else { %>
+        <div class="initials">
+          <%= user.email.slice(0, 2).toUpperCase() %>
+        </div>
+      <% } %>
+
+      <h5><%= user.email %></h5>
+      <p><i class="bi bi-geo-alt-fill"></i> <%= user.location || "Unknown" %></p>
+      <% if (user.bio) { %>
+        <p><%= user.bio %></p>
+      <% } %>
+
+      <a href="/users/<%= user._id %>" class="btn-profile">View Profile</a>
+    </div>
+  <% }); %>
+</div>

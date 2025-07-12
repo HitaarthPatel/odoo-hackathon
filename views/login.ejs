@@ -1,0 +1,20 @@
+<%- include("partials/navbar") %>
+
+<div class="container mt-5">
+  <h1>Login</h1>
+  <form action="/login" method="POST">
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required class="form-control" />
+    </div>
+    <button class="btn btn-primary">Login</button>
+  </form>
+
+  <% if (error && error.length > 0) { %>
+    <div class="text-danger mt-3"><%= error %></div>
+  <% } %>
+</div>
